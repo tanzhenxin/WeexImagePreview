@@ -1,0 +1,22 @@
+ali_source 'alibaba-specs'
+ali_source 'alibaba-specs-mirror'
+
+platform :ios, '8.0'
+#inhibit_all_warnings!
+
+def common
+	pod 'WeexSDK'
+	pod 'WeexPluginLoader'
+end
+
+def dep
+    pod 'SDWebImage', '~> 3.7.5'
+    pod 'MBProgressHUD'
+end
+
+target 'WeexPlguinDemo' do
+    common
+    dep
+end
+
+
