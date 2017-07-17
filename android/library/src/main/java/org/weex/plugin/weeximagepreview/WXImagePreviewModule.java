@@ -18,24 +18,35 @@ import java.util.Objects;
 
 @WeexModule(name = "weexImagePreview")
 public class WXImagePreviewModule extends WXModule {
+    private int index = 0;
+    private JSONArray images;
     
     @JSMethod
     public void show(Map<String, Object> options) {
-        int index = (int) options.get("index");
-        JSONArray images = (JSONArray) options.get("images");
-
-        ArrayList<String> imgs = new ArrayList<>();
-        for (int i = 0; i < images.size(); i++) {
-            imgs.add(images.getString(i));
+        if (options.containsKey("index")) {
+            index = (int) options.get("index");
         }
 
-        if (index < 0 ) index = 0;
-        if (index > imgs.size()) index = imgs.size() - 1;
+        if (options.containsKey("images")) {
+            images = (JSONArray) options.get("images");
+        }
 
-        Intent intent = new Intent(mWXSDKInstance.getContext(), ImagePreviewActivity.class);
-        intent.putExtra("index", index);
-        intent.putStringArrayListExtra("images", imgs);
-        mWXSDKInstance.getContext().startActivity(intent);
-        ((Activity)mWXSDKInstance.getContext()).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        if (images != null && images.size() > 0) {
+            ArrayList<String> imgs = new ArrayList<>();
+            for (int i = 0; i < images.size(); i++) {
+                imgs.add(images.getString(i));
+            }
+
+            if (index < 0 ) index = 0;
+            if (index > imgs.size()) index = imgs.size() - 1;
+
+            Intent intent = new Intent(mWXSDKInstance.getContext(), ImagePreviewActivity.class);
+            intent.putExtra("index", index);
+            intent.putStringArrayListExtra("images", imgs);
+            mWXSDKInstance.getContext().startActivity(intent);
+            ((Activity)mWXSDKInstance.getContext()).overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } else {
+            Toast.makeText(mWXSDKInstance.getContext(), "参数有误", Toast.LENGTH_SHORT).show();
+        }
     }
 }
