@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/Gavin/Projects/weex-image-preview/android/library/build/intermediates/res/merged/debug/animator/scale_with_alpha.xml",
+        "source": "/Users/Gavin/Projects/weex-image-preview/android/library/src/main/res/animator/scale_with_alpha.xml"
+    },
+    {
+        "merged": "/Users/Gavin/Projects/weex-image-preview/android/library/build/intermediates/res/merged/debug/animator/indicator_animator.xml",
+        "source": "/Users/Gavin/Projects/weex-image-preview/android/library/src/main/res/animator/indicator_animator.xml"
+    }
+]

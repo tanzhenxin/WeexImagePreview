@@ -27,7 +27,6 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.util.Log;
 
-import com.alibaba.weex.R;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.Contents;
 import com.google.zxing.client.android.Intents;
@@ -37,6 +36,8 @@ import com.google.zxing.client.android.book.SearchBookContentsActivity;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ParsedResultType;
 import com.google.zxing.client.result.ResultParser;
+
+import org.weex.demo.R;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

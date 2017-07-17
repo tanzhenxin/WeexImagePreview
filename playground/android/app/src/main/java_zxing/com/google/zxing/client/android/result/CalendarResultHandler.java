@@ -21,9 +21,10 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.util.Log;
 
-import com.alibaba.weex.R;
 import com.google.zxing.client.result.CalendarParsedResult;
 import com.google.zxing.client.result.ParsedResult;
+
+import org.weex.demo.R;
 
 import java.text.DateFormat;
 import java.util.Date;

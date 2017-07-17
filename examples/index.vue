@@ -13,7 +13,7 @@
 
 <script>
 
-	const plugin = weex.requireModule('weexPlguinDemo');
+	// const plugin = weex.requireModule('weexPlguinDemo');
 	const imagePreview = weex.requireModule('weexImagePreview');
 
 	module.exports = {

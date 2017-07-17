@@ -22,7 +22,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebView;
 
-import com.alibaba.weex.R;
+import org.weex.demo.R;
 
 
 /**

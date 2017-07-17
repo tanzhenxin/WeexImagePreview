@@ -19,7 +19,6 @@ package com.google.zxing.client.android.result.supplement;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.alibaba.weex.R;
 import com.google.zxing.client.android.HttpHelper;
 import com.google.zxing.client.android.LocaleManager;
 import com.google.zxing.client.android.history.HistoryManager;
@@ -28,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.weex.demo.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

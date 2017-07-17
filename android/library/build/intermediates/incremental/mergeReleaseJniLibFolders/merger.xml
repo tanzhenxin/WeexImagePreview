@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/Gavin/Projects/weex-image-preview/android/library/libs"><file name="universal-image-loader-1.9.4.jar" path="/Users/Gavin/Projects/weex-image-preview/android/library/libs/universal-image-loader-1.9.4.jar"/></source></dataSet><dataSet config="release"><source path="/Users/Gavin/Projects/weex-image-preview/android/library/src/release/jniLibs"/></dataSet></merger>

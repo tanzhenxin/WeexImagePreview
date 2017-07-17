@@ -18,10 +18,11 @@ package com.google.zxing.client.android.result;
 
 import android.app.Activity;
 
-import com.alibaba.weex.R;
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ISBNParsedResult;
 import com.google.zxing.client.result.ParsedResult;
+
+import org.weex.demo.R;
 
 /**
  * Handles books encoded by their ISBN values.

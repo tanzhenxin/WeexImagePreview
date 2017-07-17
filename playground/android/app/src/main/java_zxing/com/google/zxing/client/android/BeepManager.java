@@ -26,7 +26,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.alibaba.weex.R;
+import org.weex.demo.R;
 
 import java.io.Closeable;
 import java.io.IOException;
