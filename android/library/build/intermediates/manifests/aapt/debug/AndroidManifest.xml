@@ -9,7 +9,10 @@
         android:targetSdkVersion="25" />
 
     <application>
-        <activity android:name="org.weex.plugin.weeximagepreview.ImagePreviewActivity" >
+        <activity
+            android:name="org.weex.plugin.weeximagepreview.ImagePreviewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

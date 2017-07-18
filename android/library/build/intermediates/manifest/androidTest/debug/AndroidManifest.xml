@@ -16,7 +16,10 @@
     <application>
         <uses-library android:name="android.test.runner" />
 
-        <activity android:name="org.weex.plugin.weeximagepreview.ImagePreviewActivity" >
+        <activity
+            android:name="org.weex.plugin.weeximagepreview.ImagePreviewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
         </activity>
 
         <receiver

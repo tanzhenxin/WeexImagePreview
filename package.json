@@ -17,7 +17,7 @@
     "//":"安装类型为maven",
     "type":"maven",
     "groupId":"org.weex.plugin",
-    "name":"weexplguindemo",
+    "name":"weeximagepreview",
     "version":"0.0.1"
   },
   "keywords": [

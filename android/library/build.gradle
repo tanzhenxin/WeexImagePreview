@@ -41,3 +41,10 @@ dependencies {
     testCompile 'junit:junit:4.12'
     provided 'org.weex.plugin:processor:1.0.2'
 }
+
+ext {
+    PUBLISH_GROUP_ID = 'org.weex.plugin'
+    PUBLISH_ARTIFACT_ID = 'weeximagepreview'
+    PUBLISH_VERSION = '0.0.1'
+}
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

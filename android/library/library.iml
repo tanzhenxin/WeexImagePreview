@@ -123,8 +123,8 @@
     <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.0-alpha8" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-1.0.0-alpha8" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.1.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="annotation-1.0.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-25.1.1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-25.1.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="espresso-core-2.2.2" level="project" />

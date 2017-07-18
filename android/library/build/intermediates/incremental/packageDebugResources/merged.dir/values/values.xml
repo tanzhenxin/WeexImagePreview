@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="CircleIndicator"><attr format="dimension" name="ci_width"/><attr format="dimension" name="ci_height"/><attr format="dimension" name="ci_margin"/><attr format="reference" name="ci_animator"/><attr format="reference" name="ci_animator_reverse"/><attr format="reference" name="ci_drawable"/><attr format="reference" name="ci_drawable_unselected"/></declare-styleable>
-    <string name="app_name">ActionSheet</string>
-</resources>
