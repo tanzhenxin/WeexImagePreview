@@ -18,5 +18,3 @@ target 'WeexPlguinDemo' do
     common
     dep
 end
-
-

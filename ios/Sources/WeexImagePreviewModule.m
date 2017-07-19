@@ -38,30 +38,30 @@
 
 @synthesize weexInstance;
 
-WX_PlUGIN_EXPORT_MODULE(wxc-imagePreview, WeexImagePreviewModule)
+WX_PlUGIN_EXPORT_MODULE(weexImagePreview, WeexImagePreviewModule)
 WX_EXPORT_METHOD(@selector(show:))
 
 /**
  show image preview
- 
+
  @param params images and index
  */
 -(void)show:(NSDictionary *)params
 {
     //WV_JSB_CHECK_PARAMS_RETURN();
-    
+
     NSArray * images = [params valueForKey:@"images"];
 //    if (!images || images.count <= 0) {
 //        WV_JSB_CALLBACK_PARAM_ERR_RETURN(@"No images.");
 //    }
-//    
+//
     NSInteger index = [[params valueForKey:@"index"] integerValue];
     if (index < 0) {
         index = 0;
     } else if (index >= images.count) {
         index = images.count - 1;
     }
-    
+
     [self showImagePreviewWidget:images withIndex:index toSourceView:weexInstance.viewController.view.window];
 //    WV_JSB_CALLBACK(callback, MSG_RET_SUCCESS, nil);
 }
@@ -79,37 +79,37 @@ WX_EXPORT_METHOD(@selector(show:))
     for (NSInteger i = 0; i < cnt; i++) {
         [_imageArray addObject:NSNull.null];
     }
-    
+
     [self initPreviewView];
     [self initContentView];
     [self initPageControlWithIndex:index];
-    
+
     // 加载框的 UI 数组。
     if (!_activityLoadingBoxArray) {
         _activityLoadingBoxArray = [[NSMutableArray alloc] initWithCapacity:cnt];
     }
-    
+
     // 请求队列，最多并发 3 个。
     if (!_requestQueue) {
         _requestQueue = [[NSOperationQueue alloc] init];
         [_requestQueue setMaxConcurrentOperationCount:3];
     }
-    
+
     CGRect frame = _targetView.bounds;
     for (NSInteger i = 0; i < cnt; i++) {
         UIActivityIndicatorView * loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         // 30x30，居中
         loadingView.frame = CGRectMake(i * frame.size.width + (frame.size.width - 30) / 2, (frame.size.height - 30) / 2, 30, 30);
         [loadingView startAnimating];
-        
+
         [_contentView addSubview:loadingView];
         [_activityLoadingBoxArray addObject:loadingView];
-        
+
         if (index == i) {
             [self lazyLoadImageWithIndex:i];
         }
     }
-    
+
     // 使用过渡动画显示界面。
     [UIView animateWithDuration:0.3f
                      animations:^{
@@ -125,7 +125,7 @@ WX_EXPORT_METHOD(@selector(show:))
  */
 - (void)initPreviewView {
     CGRect frame = _targetView.bounds;
-    
+
     if (!_previewView) {
         _previewView = [[UIView alloc] initWithFrame:frame];
         _previewView.alpha = 0.0f;
@@ -133,7 +133,7 @@ WX_EXPORT_METHOD(@selector(show:))
         UIView * backgroundView = [[UIView alloc] initWithFrame:frame];
         [backgroundView setBackgroundColor:[UIColor darkTextColor]];
         [_previewView addSubview:backgroundView];
-        
+
         // 长按保存图片。
         _longPressImageHandler = [[WeexImagePreviewLongPress alloc] init];
         __block __weak typeof(self) weak = self;
@@ -147,7 +147,7 @@ WX_EXPORT_METHOD(@selector(show:))
         };
         [_longPressImageHandler bind:_previewView];
     }
-    
+
     [_previewView removeFromSuperview];
     [_targetView addSubview:_previewView];
 }
@@ -169,7 +169,7 @@ WX_EXPORT_METHOD(@selector(show:))
         [_contentView setScrollsToTop:NO];
         [_contentView setDelegate:self];
         [self bindTapGestureViewAction:_contentView];
-        
+
         [_previewView addSubview:_contentView];
     }
 }
@@ -181,14 +181,14 @@ WX_EXPORT_METHOD(@selector(show:))
     UITapGestureRecognizer * doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomInImage:)];
     [doubleTap setNumberOfTapsRequired:2];
     [doubleTap setNumberOfTouchesRequired:1];
-    
+
     [scrollView addGestureRecognizer:doubleTap];
-    
+
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideImagePreview:)];
     [tap setNumberOfTapsRequired:1];
     [tap setNumberOfTouchesRequired:1];
     [tap requireGestureRecognizerToFail:doubleTap];
-    
+
     [scrollView addGestureRecognizer:tap];
 }
 
@@ -200,11 +200,11 @@ WX_EXPORT_METHOD(@selector(show:))
     if (!_pageControl && [_imageURLArray count] > 1 && [_imageURLArray count] < 10) {
         CGRect frame = _targetView.bounds;
         _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 80, frame.size.width, 30)];
-        
+
         [_pageControl setNumberOfPages:[_imageURLArray count]];
         [_pageControl setCurrentPage:index];
         [_pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
-        
+
         [_previewView addSubview:_pageControl];
     }
     // 初始跳转到指定页。
@@ -217,11 +217,11 @@ WX_EXPORT_METHOD(@selector(show:))
  * 懒加载指定索引的图片。
  */
 - (void)lazyLoadImageWithIndex:(NSInteger)index {
-    
+
     if (index < 0 || index >= _imageURLArray.count) {
         return;
     }
-    
+
     NSString * imageURL = _imageURLArray[index];
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:imageURL]
                                                     options:0
@@ -232,7 +232,7 @@ WX_EXPORT_METHOD(@selector(show:))
             [self addImage:image withIndex:index];
         }
     }];
-    
+
     // 将 URL 标记为空。
 //    _imageURLArray[index] = @"";
 }
@@ -249,26 +249,26 @@ WX_EXPORT_METHOD(@selector(show:))
         });
         return;
     }
-    
+
     if (!image) {
         return;
     }
-    
+
     _imageArray[index] = image;
     // 创建图片 ImageView。
     UIImageView * imageView = [[UIImageView alloc] initWithImage:image];
-    
+
     CGSize frameSize = _previewView.bounds.size;
     // 图片等比缩放，适合界面。
     float imageWidth = frameSize.width;
     float imageHeight = imageView.frame.size.height / imageView.frame.size.width * imageWidth;
     imageView.frame = CGRectMake(0, 0, imageWidth, imageHeight);
     imageView.userInteractionEnabled = YES;
-    
+
     // 图片太大，要上下滑动。
     UIScrollView * imageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(index * frameSize.width, 0, frameSize.width, frameSize.height)];
     [imageScroll setContentSize:imageView.frame.size];
-    
+
     [imageScroll setMinimumZoomScale:1.0];
     [imageScroll setMaximumZoomScale:4.0];
     [imageScroll setBouncesZoom:YES];
@@ -283,14 +283,14 @@ WX_EXPORT_METHOD(@selector(show:))
     [imageScroll setScrollsToTop:YES];
     [imageScroll setAlpha:0.0f];
     [imageScroll setTag:index];
-    
+
     // 令图片垂直居中。
     if (imageHeight <= frameSize.height) {
         [self scrollViewDidZoom:imageScroll];
     }
-    
+
     [_contentView addSubview:imageScroll];
-    
+
     [UIView animateWithDuration:0.2f
                      animations:^{
                          [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
@@ -298,7 +298,7 @@ WX_EXPORT_METHOD(@selector(show:))
                      }
                      completion:^(BOOL finished){
                      }];
-    
+
     [self hiddenActivityWithIndex:index];
 }
 
@@ -323,13 +323,13 @@ WX_EXPORT_METHOD(@selector(show:))
     if (!currentView) {
         return;
     }
-    
+
     UIImageView * imageView = (UIImageView *)[self viewForZoomingInScrollView:currentView];
-    
+
     float currentScale = [currentView zoomScale];
     // 每次放大两倍。
     float newScale = currentScale * 2;
-    
+
     CGRect zoomRect = [self zoomRectForScale:newScale withCenter:[gesture locationInView:currentView] withScrollView:currentView withImageView:imageView];
     [currentView zoomToRect:zoomRect animated:YES];
 }
@@ -347,7 +347,7 @@ WX_EXPORT_METHOD(@selector(show:))
             }
         }
     }
-    
+
     return nil;
 }
 
@@ -355,19 +355,19 @@ WX_EXPORT_METHOD(@selector(show:))
  * 返回缩放矩形。
  */
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center withScrollView:(UIScrollView *)scrollView withImageView:(UIImageView *)imageView {
-    
+
     CGRect zoomRect;
-    
+
     CGSize frameSize = scrollView.frame.size;
     zoomRect.size.height = frameSize.height / scale;
     zoomRect.size.width = frameSize.width / scale;
     zoomRect.origin.x = center.x / scale * 2 - (zoomRect.size.width / 2.0);
     zoomRect.origin.y = center.y / scale * 2 - (zoomRect.size.height / 2.0);
-    
+
     if (imageView) {
         zoomRect.origin.y += imageView.frame.origin.y;
     }
-    
+
     return zoomRect;
 }
 
@@ -407,7 +407,7 @@ WX_EXPORT_METHOD(@selector(show:))
             }
         }
     }
-    
+
     return nil;
 }
 
@@ -418,7 +418,7 @@ WX_EXPORT_METHOD(@selector(show:))
     if (scrollView == _contentView) {
         // 仅切换图片时才设置 pageControl。
         NSInteger currentPage = [self currentPageIndex];
-        
+
         if (_pageControl && _pageControl.currentPage != currentPage) {
             [_pageControl setCurrentPage:currentPage];
         }
@@ -453,7 +453,7 @@ WX_EXPORT_METHOD(@selector(show:))
     if (frameSize.height > contentSize.height) {
         offsetY = (frameSize.height - contentSize.height) * 0.5;
     }
-    
+
     UIImageView * imageView = (UIImageView *)[self viewForZoomingInScrollView:scrollView];
     if (imageView) {
         imageView.center = CGPointMake(contentSize.width * 0.5 + offsetX, contentSize.height * 0.5 + offsetY);
@@ -493,25 +493,25 @@ WX_EXPORT_METHOD(@selector(show:))
         _contentView.delegate = nil;
         _contentView = nil;
     }
-    
+
     if (_pageControl) {
         [_pageControl removeFromSuperview];
         [_pageControl removeTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
         _pageControl = nil;
     }
-    
+
     if (_requestQueue) {
         [_requestQueue cancelAllOperations];
         _requestQueue = nil;
     }
-    
+
     if (_activityLoadingBoxArray) {
         for (UIActivityIndicatorView * v in _activityLoadingBoxArray) {
             [v stopAnimating];
             [v removeFromSuperview];
         }
     }
-    
+
     if (_previewView) {
         [_previewView removeFromSuperview];
         _previewView = nil;

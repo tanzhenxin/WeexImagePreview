@@ -1,7 +1,7 @@
 # coding: utf-8
 
 Pod::Spec.new do |s|
-  s.name         = "WeexPlguinDemo"
+  s.name         = "WeexImagePreview"
   s.version      = "0.0.1"
   s.summary      = "Weex Plugin"
 
@@ -17,12 +17,12 @@ Pod::Spec.new do |s|
     LICENSE
   }
   s.authors      = {
-                     "yourname" =>"youreamail"
+                     "愚远" =>"zhenxing.tzx@alibaba-inc.com"
                    }
   s.platform     = :ios
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => 'please input the url of your code in github', :tag => 'please input you github tag' }
+  s.source       = { :git => 'https://github.com/GHHX/AliPictureWeexPlugin.git', :tag => '0.0.1' }
   s.source_files  = "ios/Sources/*.{h,m,mm}"
 
   s.requires_arc = true

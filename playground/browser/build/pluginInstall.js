@@ -468,11 +468,11 @@
 	};
 
 	if (window.Vue) {
-	  weex.registerModule('wxc-imagePreview', WeexImagePreview);
+	  weex.registerModule('weexImagePreview', WeexImagePreview);
 	}
 
 	function init(weex) {
-	  weex.registerApiModule('wxc-imagePreview', WeexImagePreview, meta);
+	  weex.registerApiModule('weexImagePreview', WeexImagePreview, meta);
 	}
 	module.exports = {
 	  init: init

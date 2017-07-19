@@ -58,14 +58,17 @@
 
 	var WeexImagePreview = {
 	  show: function show(params) {
+	    var node = document.createElement('div');
+	    node.className = 'weex-image-preview-mask';
+	    document.body.appendChild(node);
+
 	    var ImagePreview = Vue.extend(_imagePreview2.default);
 	    var vueImagePreviewInstance = new ImagePreview({
-	      el: document.createElement('div'),
+	      el: node,
 	      data: function data() {
 	        return params;
 	      }
 	    });
-	    document.body.appendChild(vueImagePreviewInstance.$el);
 	    vueImagePreviewInstance.$el.className = 'weex-image-preview-mask';
 	  }
 	};
@@ -123,7 +126,7 @@
 
 
 	// module
-	exports.push([module.id, ".weex-image-preview-mask {\n  position: fixed;\n  z-index: 2000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: #000000;\n}\n", ""]);
+	exports.push([module.id, ".weex-image-preview-mask {\n  position: fixed;\n  z-index: 2000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: #000000;\n  transition: all 0.3s ease;\n}\n", ""]);
 
 	// exports
 
@@ -492,7 +495,6 @@
 	  "frame": {
 	    "width": 750,
 	    "height": 100,
-	    "justifyContent": "center",
 	    "overflow": "scroll"
 	  },
 	  "image": {
@@ -500,9 +502,6 @@
 	    "height": 100
 	  },
 	  "indicator": {
-	    "itemColor": "rgba(255, 195, 0, .5)",
-	    "itemSelectedColor": "#ffc300",
-	    "itemSize": 20,
 	    "height": 20
 	  }
 	}
@@ -513,12 +512,6 @@
 
 	'use strict';
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	//
-	//
-	//
-	//
 	//
 	//
 	//
@@ -557,23 +550,28 @@
 	    images: Array,
 	    index: {
 	      type: [Number, String],
-	      default: 1
+	      default: 0
 	    },
-	    indicatorColor: {
+	    indicatorStyle: {
 	      type: Object,
 	      default: function _default() {
 	        return {
-	          'item-color': 'rgba(255, 195, 0, .5)',
-	          'item-selected-color': '#ffc300',
-	          'item-size': '20px',
-	          'bottom': '24px'
+	          itemColor: 'rgba(255, 195, 0, .5)',
+	          itemSelectedColor: '#ffc300',
+	          itemSize: '20px',
+	          bottom: '24px'
 	        };
 	      }
 	    }
 	  },
-	  computed: {
-	    indicatorStyle: function indicatorStyle() {
-	      return _extends({}, this.indicatorColor);
+	  methods: {
+	    clickHandler: function clickHandler() {
+	      var _this = this;
+
+	      this.$el.style.opacity = '0';
+	      setTimeout(function () {
+	        _this.$el.remove();
+	      }, 300);
 	    }
 	  }
 	};
@@ -587,6 +585,9 @@
 	    staticClass: ["slider"],
 	    attrs: {
 	      "index": _vm.index
+	    },
+	    on: {
+	      "click": _vm.clickHandler
 	    }
 	  }, [_vm._l((_vm.images), function(image) {
 	    return _c('div', {
