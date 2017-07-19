@@ -25,8 +25,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.weex.R;
 import com.google.zxing.Result;
+
+import org.weex.demo.R;
 
 import java.util.ArrayList;
 

@@ -30,7 +30,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.alibaba.weex.R;
 import com.google.zxing.client.android.HttpHelper;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.LocaleManager;
@@ -38,6 +37,7 @@ import com.google.zxing.client.android.LocaleManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.weex.demo.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

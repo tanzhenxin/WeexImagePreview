@@ -22,9 +22,10 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 
-import com.alibaba.weex.R;
 import com.google.zxing.client.result.AddressBookParsedResult;
 import com.google.zxing.client.result.ParsedResult;
+
+import org.weex.demo.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;

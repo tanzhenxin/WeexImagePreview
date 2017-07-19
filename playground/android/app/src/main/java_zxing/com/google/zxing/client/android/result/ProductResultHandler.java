@@ -18,11 +18,12 @@ package com.google.zxing.client.android.result;
 
 import android.app.Activity;
 
-import com.alibaba.weex.R;
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ProductParsedResult;
+
+import org.weex.demo.R;
 
 /**
  * Handles generic products which are not books.

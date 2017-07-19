@@ -26,7 +26,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.weex.R;
+import org.weex.demo.R;
 
 
 /**

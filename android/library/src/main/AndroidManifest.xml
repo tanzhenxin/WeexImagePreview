@@ -1,4 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.weex.plugin.weexplguindemo">
+          package="org.weex.plugin.weeximagepreview"
+>
+
+    <application>
+        <activity android:name="org.weex.plugin.weeximagepreview.ImagePreviewActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"
+        >
+        </activity>
+    </application>
 
 </manifest>

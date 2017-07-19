@@ -13,8 +13,7 @@
 
 <script>
 
-	const imagePreview = weex.requireModule('wxc-imagePreview');
-
+	const imagePreview = weex.requireModule('weexImagePreview');
 	module.exports = {
 		data: {
 			value: '',

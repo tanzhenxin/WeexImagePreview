@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <org.weex.plugin.weeximagepreview.CircleIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:ci_animator="@animator/indicator_animator"
+        app:ci_drawable="@drawable/white_radius"
+        app:ci_drawable_unselected="@drawable/gray_radius"
+        app:ci_height="6dp"
+        app:ci_width="6dp">
+
+    </org.weex.plugin.weeximagepreview.CircleIndicator>
+
+</RelativeLayout>

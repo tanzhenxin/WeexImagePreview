@@ -29,11 +29,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.weex.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.android.Contents;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.clipboard.ClipboardInterface;
+
+import org.weex.demo.R;
 
 /**
  * Barcode Scanner can share data like contacts and bookmarks by displaying a QR Code on screen,

@@ -4,20 +4,21 @@
   "main": "./js/build/main.js",
   "description": "weex-plguin-demo extend for weex",
   "license": "Apache-2.0",
-  "WeexSDKVersoin": "0.10.0",
-  "//": "android工程安装配置",
-  "ios": {
-    "//": "安装类型为pod",
-    "type": "pod",
-    "name": "WeexPlguinDemo",
-    "version": "0.0.1"
-  },
-  "android": {
-    "//": "安装类型为maven",
-    "type": "maven",
-    "groupId": "org.weex.plugin",
-    "name": "weexplguindemo",
-    "version": "0.0.1"
+  "WeexSDKVersoin":"0.10.0",
+  "//":"ios工程安装配置",
+   "ios":{
+     "//":"安装类型为pod",
+     "type":"pod",
+     "name":"WeexPlguinDemo",
+     "version":"0.0.1"
+   },
+  "//":"android工程安装配置",
+  "android":{
+    "//":"安装类型为maven",
+    "type":"maven",
+    "groupId":"org.weex.plugin",
+    "name":"weeximagepreview",
+    "version":"0.0.1"
   },
   "keywords": [
     "weex",
