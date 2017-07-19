@@ -38,7 +38,7 @@
 
 @synthesize weexInstance;
 
-WX_PlUGIN_EXPORT_MODULE(weexImagePreview, WeexImagePreviewModule)
+WX_PlUGIN_EXPORT_MODULE(wxc-imagePreview, WeexImagePreviewModule)
 WX_EXPORT_METHOD(@selector(show:))
 
 /**

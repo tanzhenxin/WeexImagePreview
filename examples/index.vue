@@ -13,18 +13,16 @@
 
 <script>
 
-	const plugin = weex.requireModule('weexPlguinDemo');
-	const imagePreview = weex.requireModule('weexImagePreview');
+	const imagePreview = weex.requireModule('wxc-imagePreview');
 
 	module.exports = {
 		data: {
 			value: '',
 			index: 0,
-			txtChange: ''
+			txtChange: '',
 		},
 		methods: {
 			createAction: function() {
-				// plugin.show();
 				imagePreview.show({
 					// 要浏览的图片路径
 					images: [
@@ -35,7 +33,7 @@
 						'http://gw.alicdn.com/bao/uploaded/i2/T114R6FpxcXXXXXXXX_!!0-item_pic.jpg'
 					],
 					// 起始图片索引
-					index: 2
+					index: 1
 				})
 			}
 		}

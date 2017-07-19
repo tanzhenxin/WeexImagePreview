@@ -1,28 +1,37 @@
+import './index.css'
+import VueImagePreview from './vue/image-preview.vue'
 
+const WeexImagePreview = {
+  show(params) {
+    const node = document.createElement('div');
+    node.className = 'weex-image-preview-mask';
+    document.body.appendChild(node);
 
-const WeexPlguinDemo = {
-  show() {
-    console.log('module WeexPlguinDemo is created sucessfully');
-      alert("module WeexPlguinDemo is created sucessfully ")
+    const ImagePreview = Vue.extend(VueImagePreview);
+    const vueImagePreviewInstance = new ImagePreview({
+      el: node,
+      data() {
+        return params;
+      }
+    });
+    vueImagePreviewInstance.$el.className = 'weex-image-preview-mask';
   }
 };
 
 
 var meta = {
-   WeexPlguinDemo: [{
+   WeexImagePreview: [{
     name: 'show',
     args: []
   }]
 };
 
-
-
 if(window.Vue) {
-  weex.registerModule('weexPlguinDemo', WeexPlguinDemo);
+  weex.registerModule('wxc-imagePreview', WeexImagePreview);
 }
 
 function init(weex) {
-  weex.registerApiModule('weexPlguinDemo', WeexPlguinDemo, meta);
+  weex.registerApiModule('wxc-imagePreview', WeexImagePreview, meta);
 }
 module.exports = {
   init:init
