@@ -21,8 +21,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(we|vue)(\?[^?]+)?$/,
+        test: /\.(we)(\?[^?]+)?$/,
         loader: 'weex'
+      },
+      {
+        test: /\.vue(\?[^?]+)?$/,
+        loaders: ['vue-loader']
       },
       {
         test: /\.js(\?[^?]+)?$/,
@@ -37,7 +41,3 @@ module.exports = {
   },
   plugins: [bannerPlugin]
 }
-
-
-
-
