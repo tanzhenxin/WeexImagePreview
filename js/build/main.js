@@ -868,24 +868,19 @@
 	//
 
 	module.exports = {
-	  props: {
-	    images: Array,
-	    index: {
-	      type: [Number, String],
-	      default: 0
-	    },
-	    indicatorStyle: {
-	      type: Object,
-	      default: function _default() {
-	        return {
-	          itemColor: 'rgba(255, 195, 0, .5)',
-	          itemSelectedColor: '#ffc300',
-	          itemSize: '20px',
-	          bottom: '24px'
-	        };
+	  data: function data() {
+	    return {
+	      images: [],
+	      index: 0,
+	      indicatorStyle: {
+	        itemColor: 'rgba(255, 195, 0, .5)',
+	        itemSelectedColor: '#ffc300',
+	        itemSize: '20px',
+	        bottom: '24px'
 	      }
-	    }
+	    };
 	  },
+
 	  methods: {
 	    clickHandler: function clickHandler() {
 	      var _this = this;
