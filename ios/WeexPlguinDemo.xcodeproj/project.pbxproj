@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		208270870CD919EB3AE1F7A7 /* libPods-WeexPlguinDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8736C341836C8135E58BEC3 /* libPods-WeexPlguinDemo.a */; };
+		A1114E0E1F276DD000F304FA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1114E0D1F276DD000F304FA /* QuartzCore.framework */; };
+		A1114E101F276EB300F304FA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1114E0F1F276EB300F304FA /* ImageIO.framework */; };
+		A1114E121F276EC300F304FA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1114E111F276EC300F304FA /* MobileCoreServices.framework */; };
 		A1C625D61F15CB8200131E01 /* WeexImagePreviewModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C625D41F15CB8200131E01 /* WeexImagePreviewModule.h */; };
 		A1C625D71F15CB8200131E01 /* WeexImagePreviewModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C625D51F15CB8200131E01 /* WeexImagePreviewModule.m */; };
 		A1C625DA1F15CC6000131E01 /* WeexImagePreviewLongPress.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C625D81F15CC6000131E01 /* WeexImagePreviewLongPress.h */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		0F1C92092FF9562A4B475501 /* Pods-WeexPlguinDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexPlguinDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeexPlguinDemo/Pods-WeexPlguinDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		87F9AEB97654FF7EEA032F16 /* Pods-WeexPlguinDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexPlguinDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeexPlguinDemo/Pods-WeexPlguinDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A1114E0D1F276DD000F304FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A1114E0F1F276EB300F304FA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A1114E111F276EC300F304FA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A1C625D41F15CB8200131E01 /* WeexImagePreviewModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexImagePreviewModule.h; sourceTree = "<group>"; };
 		A1C625D51F15CB8200131E01 /* WeexImagePreviewModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeexImagePreviewModule.m; sourceTree = "<group>"; };
 		A1C625D81F15CC6000131E01 /* WeexImagePreviewLongPress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeexImagePreviewLongPress.h; sourceTree = "<group>"; };
@@ -32,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1114E121F276EC300F304FA /* MobileCoreServices.framework in Frameworks */,
+				A1114E101F276EB300F304FA /* ImageIO.framework in Frameworks */,
+				A1114E0E1F276DD000F304FA /* QuartzCore.framework in Frameworks */,
 				208270870CD919EB3AE1F7A7 /* libPods-WeexPlguinDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +51,9 @@
 		248CB2E7B700A3049EE0727E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1114E111F276EC300F304FA /* MobileCoreServices.framework */,
+				A1114E0F1F276EB300F304FA /* ImageIO.framework */,
+				A1114E0D1F276DD000F304FA /* QuartzCore.framework */,
 				E8736C341836C8135E58BEC3 /* libPods-WeexPlguinDemo.a */,
 			);
 			name = Frameworks;
