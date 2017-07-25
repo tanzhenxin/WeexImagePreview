@@ -9,7 +9,7 @@
 #import "WeexImagePreviewModule.h"
 #import "WeexImagePreviewLongPress.h"
 #import <WeexPluginLoader/WeexPluginLoader.h>
-#import <SDWebImageManager.h>
+#import "SDWebImageManager.h"
 
 @interface WeexImagePreviewModule () <UIScrollViewDelegate>
 
