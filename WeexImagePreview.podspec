@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => 'git@gitlab.alibaba-inc.com:IIC-IP-FE/weex-image-preview.git', :tag => '0.0.1' }
+  s.source       = { :git => 'git@gitlab.alibaba-inc.com:IIC-IP-FE/weex-image-preview.git', :tag => '0.0.4' }
   s.source_files  = "ios/Sources/*.{h,m,mm}"
 
   s.requires_arc = true
