@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "WeexImagePreview"
-  s.version      = "0.0.1"
+  s.version      = "0.0.5"
   s.summary      = "Weex Plugin"
 
   s.description  = <<-DESC
@@ -22,12 +22,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => 'git@gitlab.alibaba-inc.com:IIC-IP-FE/weex-image-preview.git', :tag => '0.0.4' }
+  s.source       = { :git => 'git@gitlab.alibaba-inc.com:IIC-IP-FE/weex-image-preview.git', :tag => '0.0.5' }
   s.source_files  = "ios/Sources/*.{h,m,mm}"
 
   s.requires_arc = true
   s.dependency "WeexPluginLoader"
   s.dependency "WeexSDK"
-  s.dependency "SDWebImage"
+  s.dependency "SDWebImage", '~> 3.7.5'
   s.dependency "MBProgressHUD"
 end
