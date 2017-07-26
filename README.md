@@ -24,7 +24,7 @@ weex-image-preview是一个weex插件，可以通过weexpack快速集成，可�
   weexpack plugin add weex-image-preview
   ```
 # 项目地址
-[github](please add you source code address)
+[github](https://github.com/tanzhenxin/WeexImagePreview)
 
 # 已有工程集成
 ## iOS集成插件WeexImagePreview
