@@ -223,11 +223,7 @@ WX_EXPORT_METHOD(@selector(show:))
     }
 
     NSString * imageURL = _imageURLArray[index];
-    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:imageURL]
-                                                    options:0
-                                                   progress:nil
-                                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL)
-    {
+    [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:imageURL] options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (finished && error == nil) {
             [self addImage:image withIndex:index];
         }
